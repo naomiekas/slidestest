@@ -322,3 +322,16 @@ knitr::include_graphics("img/unvotes/unvotes-14.jpeg")
 ```{r echo=FALSE, out.width="65%"}
 knitr::include_graphics("img/unvotes/unvotes-15.png")
 ```
+
+---
+
+## Let's Download Some Software
+
+.center[
+.large[
+
+[R](https://cloud.r-project.org/)
+
+[R Studio](https://www.rstudio.com/products/rstudio/)
+]
+]
