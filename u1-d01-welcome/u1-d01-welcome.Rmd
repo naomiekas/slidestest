@@ -1,5 +1,6 @@
 ---
 title: "Welcome!"
+subtitle: "R for Psychology"
 author: "Naomi Ekas"
 output:
   xaringan::moon_reader:
