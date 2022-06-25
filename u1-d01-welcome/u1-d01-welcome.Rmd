@@ -1,11 +1,11 @@
 ---
 title: "Welcome!"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+author: "Naomi Ekas"
 output:
   xaringan::moon_reader:
-    css: ["../xaringan-themer.css", "../slides.css"]
+    css: "../slides.css"
     lib_dir: libs
+    self_contained: TRUE
     nature:
       ratio: "16:9"
       highlightLines: true
@@ -20,7 +20,7 @@ output:
 library(tidyverse)
 if (!require("emo")) devtools::install_github("hadley/emo")
 library(emo)
-packageVersion("xaringan")
+
 ```
 
 class: middle
