@@ -1,11 +1,12 @@
 ---
-title: "Meet the toolkit:<br>version control and collaboration"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+title: "Meet the toolkit:<br>Version control and collaboration"
+subtitle: "R for Psychology"
+author: "Naomi Ekas"
 output:
   xaringan::moon_reader:
-    css: ["../xaringan-themer.css", "../slides.css"]
+    css: "../slides.css"
     lib_dir: libs
+    self_contained: TRUE
     nature:
       ratio: "16:9"
       highlightLines: true
@@ -21,23 +22,15 @@ library(tidyverse)
 library(viridis)
 library(sugrrants)
 library(lubridate)
+if (!require("emo")) devtools::install_github("hadley/emo")
+library(emo)
 ```
 
 ## Course toolkit
 
 <br>
 
-.pull-left[
-### .gray[Course operation]
-.gray[
-- introds.org
-- Learn
-- Zoom
-- Teams
-- Piazza
-]
-]
-.pull-right[
+
 ### .gray[Doing data science]
 - .gray[Programming:]
   - .gray[R]
@@ -47,7 +40,7 @@ library(lubridate)
 - .pink[Version control and collaboration:]
   - .pink[Git]
   - .pink[GitHub]
-]
+
 
 ---
 
@@ -157,7 +150,7 @@ knitr::include_graphics("img/whole-game-04.png")
 
 <br>
 
-*Next week...*
+*Coming soon...*
 
 *Work with R, RStudio, Git, and GitHub together!*<sup>+</sup>
 
