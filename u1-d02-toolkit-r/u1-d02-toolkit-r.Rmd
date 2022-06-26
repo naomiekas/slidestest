@@ -1,11 +1,12 @@
 ---
-title: "Meet the toolkit:<br>programming"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+title: "Meet the toolkit:<br>Programming"
+subtitle: "R for Psychology"
+author: "Naomi Ekas"
 output:
   xaringan::moon_reader:
-    css: ["../xaringan-themer.css", "../slides.css"]
+    css: "../slides.css"
     lib_dir: libs
+    self_contained: TRUE
     nature:
       ratio: "16:9"
       highlightLines: true
@@ -21,23 +22,16 @@ library(tidyverse)
 library(viridis)
 library(sugrrants)
 library(lubridate)
+if (!require("emo")) devtools::install_github("hadley/emo")
+library(emo)
 ```
 
 ## Course toolkit
 
 <br>
 
-.pull-left[
-### .gray[Course operation]
-.gray[
-- introds.org
-- Learn
-- Zoom
-- Teams
-- Piazza
-]
-]
-.pull-right[
+
+
 ### .pink[Doing data science]
 - .pink[Programming:]
   - .pink[R]
@@ -47,7 +41,7 @@ library(lubridate)
 - .gray[Version control and collaboration:]
   - .gray[Git]
   - .gray[GitHub]
-]
+
 
 ---
 
@@ -352,6 +346,6 @@ Mitchell O'Hara-Wild, [useR! 2018 feature wall](https://www.mitchelloharawild.co
 .your-turn[
 .light-blue[.hand[Your turn:]] `AE 02 - Bechdel + R Markdown`
 - [The Bechdel test](https://en.wikipedia.org/wiki/Bechdel_test) asks whether a work of fiction features at least two women who talk to each other about something other than a man, and there must be two women named characters.
-- Go to [RStudio Cloud](https://rstudio.cloud/) and start the assignment `AE 02 - Bechdel + R Markdown`. 
+- Open the .rmd file and start the assignment `AE 02 - Bechdel + R Markdown`. 
 - Open and knit the R Markdown document `bechdel.Rmd`, review the document, and fill in the blanks.
 ]
