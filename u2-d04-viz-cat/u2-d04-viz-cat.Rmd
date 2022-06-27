@@ -1,11 +1,12 @@
 ---
-title: "Visualising categorical data"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+title: "Visualizing Categorical Data"
+subtitle: "<br><br> R for Psychology"
+author: "Naomi Ekas"
 output:
   xaringan::moon_reader:
-    css: ["../xaringan-themer.css", "../slides.css"]
+    css: "../slides.css"
     lib_dir: libs
+    self_contained: TRUE
     nature:
       ratio: "16:9"
       highlightLines: true
@@ -103,12 +104,11 @@ ggplot(loans, aes(x = homeownership, fill = grade)) +
 
 ## Customizing bar plots
 
-.panelset[
-.panel[.panel-name[Plot]
+.pull-left-wide[
 ```{r ref.label = "bar-custom", echo = FALSE, warning = FALSE}
 ```
 ]
-.panel[.panel-name[Code]
+.pull-right[.small[
 ```{r bar-custom, fig.show = "hide", warning = FALSE}
 ggplot(loans, aes(y = homeownership, #<<
                   fill = grade)) +
@@ -123,6 +123,7 @@ ggplot(loans, aes(y = homeownership, #<<
 ```
 ]
 ]
+
 
 ---
 
