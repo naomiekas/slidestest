@@ -1,11 +1,12 @@
 ---
-title: "Data and visualisation"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+title: "Data and Visualization"
+subtitle: "<br><br> R for Psychology"
+author: "Naomi Ekas"
 output:
   xaringan::moon_reader:
-    css: ["../xaringan-themer.css", "../slides.css"]
+    css: "../slides.css"
     lib_dir: libs
+    self_contained: TRUE
     nature:
       ratio: "16:9"
       highlightLines: true
@@ -92,13 +93,13 @@ dim(starwars)  # dimensions (row column)
 
 class: middle
 
-# Exploratory data analysis
+# Exploratory Data Analysis
 
 ---
 
 ## What is EDA?
 
-- Exploratory data analysis (EDA) is an approach to analysing data sets to summarize its main characteristics
+- Exploratory data analysis (EDA) is an approach to analyzing data sets to summarize its main characteristics
 - Often, this is visual -- this is what we'll focus on first
 - But we might also calculate summary statistics and perform data wrangling/manipulation/transformation at (or before) this stage of the analysis -- this is what we'll focus on next
 
@@ -145,11 +146,11 @@ knitr::include_graphics("img/jabbaplot.png")
 
 class: middle
 
-# Data visualization
+# Data Visualization
 
 ---
 
-## Data visualization
+## Data Visualization
 
 > *"The simple graph has brought more information to the data analyst's mind than any other device." --- John Tukey*
 
@@ -267,7 +268,7 @@ quartet[23:44,]
 
 ---
 
-## Summarising Anscombe's quartet
+## Summarizing Anscombe's quartet
 
 ```{r quartet-summary}
 quartet %>%
