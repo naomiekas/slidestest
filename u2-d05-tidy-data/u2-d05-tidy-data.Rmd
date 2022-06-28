@@ -1,11 +1,12 @@
 ---
 title: "Tidy data"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+subtitle: "<br><br> R for Psychology"
+author: "Naomi Ekas"
 output:
   xaringan::moon_reader:
-    css: ["../xaringan-themer.css", "../slides.css"]
+    css: "../slides.css"
     lib_dir: libs
+    self_contained: TRUE
     nature:
       ratio: "16:9"
       highlightLines: true
@@ -92,37 +93,28 @@ Source: [US Census Fact Finder, General Economic Characteristics, ACS 2017](http
 
 ---
 
-## Displaying vs. summarising data
+## Displaying vs. summarizing data
 
-.panelset[
 
-.panel[.panel-name[Output]
-
-.pull-left[
+.pull-left-wide[
 ```{r echo=FALSE}
 starwars %>%
   select(name, height, mass)
 ```
 ]
 .pull-right[
-```{r echo=FALSE}
-starwars %>%
-  group_by(gender) %>%
-  summarize(avg_ht = mean(height, na.rm = TRUE))
-```
-]
-
-]
-
-.panel[.panel-name[Code]
-
-.pull-left[
 ```{r eval=FALSE}
 starwars %>%
   select(name, height, mass)
+
 ```
+
 ]
-.pull-right[
+---
+#Summarizing Data 
+
+.pull-left-wide[
+
 ```{r eval=FALSE}
 starwars %>%
   group_by(gender) %>%
@@ -131,7 +123,13 @@ starwars %>%
     )
 ```
 ]
+.pull-right[
+```{r echo=FALSE}
+starwars %>%
+  group_by(gender) %>%
+  summarize(avg_ht = mean(height, na.rm = TRUE))
+```
 
 ]
 
-]
+
