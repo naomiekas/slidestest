@@ -1,11 +1,12 @@
 ---
-title: "Grammar of data wrangling"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+title: "Grammar of Data Wrangling"
+subtitle: "<br><br> R for Psychology"
+author: "Naomi Ekas"
 output:
   xaringan::moon_reader:
-    css: ["../xaringan-themer.css", "../slides.css"]
+    css: "../slides.css"
     lib_dir: libs
+    self_contained: TRUE
     nature:
       ratio: "16:9"
       highlightLines: true
@@ -43,7 +44,7 @@ knitr::include_graphics("img/dplyr-part-of-tidyverse.png")
 - `filter`: pick rows matching criteria
 - `distinct`: filter for unique rows
 - `mutate`: add new variables
-- `summarise`: reduce variables to values
+- `summarize`: reduce variables to values
 - `group_by`: for grouped operations
 - ... (many more)
 ]
