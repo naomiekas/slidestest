@@ -1,11 +1,12 @@
 ---
-title: "Working with a single data frame"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+title: "Working With a Single Data Frame"
+subtitle: "<br><br> R for Psychology"
+author: "Naomi Ekas"
 output:
   xaringan::moon_reader:
-    css: ["../xaringan-themer.css", "../slides.css"]
+    css: "../slides.css"
     lib_dir: libs
+    self_contained: TRUE
     nature:
       ratio: "16:9"
       highlightLines: true
@@ -226,7 +227,7 @@ operator    | definition                   || operator     | definition
 
 Time to actually play around with the Hotels dataset!
 
-- Go to RStudio Cloud and start `AE 04 - Hotels + Data wrangling`.
+- Go to Github and start `AE 04 - Hotels + Data wrangling`.
 - Open the R Markdown document and complete Exercises 1 - 4.
 ]
 
@@ -341,7 +342,7 @@ hotels %>%
 .your-turn[
 ### Your turn!
 
-- Go back to RStudio Cloud and continue `AE 04 - Hotels + Data wrangling`.
+- Go back to RStudio and continue `AE 04 - Hotels + Data wrangling`.
 - Open the R Markdown document and complete Exercises 5 and 6.
 ]
 
@@ -412,23 +413,23 @@ hotels %>%
 
 class: middle
 
-# `summarise` and `group_by`
+# `summarize` and `group_by`
 
 ---
 
-## `summarise` for summary stats
+## `summarize` for summary stats
 
 ```{r}
 # mean average daily rate for all bookings
 hotels %>%
-  summarise(mean_adr = mean(adr)) #<<
+  summarize(mean_adr = mean(adr)) #<<
 ```
 
 --
 
 .pull-left-wide[
 .tip[
-`summarise()` changes the data frame entirely, it collapses rows down to a single 
+`summarize()` changes the data frame entirely, it collapses rows down to a single 
 summary statistic, and removes all columns that are irrelevant to the calculation.
 ]
 ]
@@ -436,7 +437,7 @@ summary statistic, and removes all columns that are irrelevant to the calculatio
 ---
 
 .tip[
-`summarise()` also lets you get away with being sloppy and not naming your new 
+`summarize()` also lets you get away with being sloppy and not naming your new 
 column, but that's not recommended!
 ]
 
@@ -445,7 +446,7 @@ column, but that's not recommended!
 
 ```{r}
 hotels %>%
-  summarise(mean(adr))
+  summarize(mean(adr))
 ```
 ]
 .pull-right[
@@ -453,7 +454,7 @@ hotels %>%
 
 ```{r}
 hotels %>%
-  summarise(mean_adr = mean(adr))
+  summarize(mean_adr = mean(adr))
 ```
 ]
 
@@ -465,7 +466,7 @@ hotels %>%
 # mean average daily rate for all booking at city and resort hotels
 hotels %>%
   group_by(hotel) %>% #<<
-  summarise(mean_adr = mean(adr))
+  summarize(mean_adr = mean(adr))
 ```
 
 ---
@@ -478,7 +479,7 @@ The following two give the same result, so `count` is simply short for `group_by
 ```{r}
 hotels %>%
   group_by(hotel) %>%
-  summarise(n = n())
+  summarize(n = n())
 ```
 ]
 .pull-right[
@@ -492,11 +493,11 @@ hotels %>%
 
 ## Multiple summary statistics
 
-`summarise` can be used for multiple summary statistics as well
+`summarize` can be used for multiple summary statistics as well
 
 ```{r}
 hotels %>%
-  summarise(
+  summarize(
     min_adr = min(adr),
     mean_adr = mean(adr),
     median_adr = median(adr),
@@ -511,6 +512,6 @@ hotels %>%
 
 Time to actually play around with the Hotels dataset!
 
-- Go to RStudio Cloud and start `AE 04 - Hotels + Data wrangling`.
+- Go to RStudio and start `AE 04 - Hotels + Data wrangling`.
 - Open the R Markdown document and complete Exercises 7 and 8.
 ]
