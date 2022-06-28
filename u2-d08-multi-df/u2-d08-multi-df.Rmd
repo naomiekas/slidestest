@@ -1,11 +1,12 @@
 ---
-title: "Working with multiple data frames"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+title: "Working with Multiple Data Frames"
+subtitle: "<br><br> R for Psychology"
+author: "Naomi Ekas"
 output:
   xaringan::moon_reader:
-    css: ["../xaringan-themer.css", "../slides.css"]
+    css: "../slides.css"
     lib_dir: libs
+    self_contained: TRUE
     nature:
       ratio: "16:9"
       highlightLines: true
@@ -60,28 +61,24 @@ Source: [Discover Magazine](https://www.discovermagazine.com/the-sciences/meet-1
 
 ## Inputs
 
-.panelset[
+#Professions
 
-.panel[.panel-name[professions]
+
 ```{r}
 professions
 ```
-]
+---
 
-.panel[.panel-name[dates]
+#Dates
 ```{r}
 dates
 ```
-]
+---
 
-.panel[.panel-name[works]
+#Works
 ```{r}
 works
 ```
-]
-
-]
-
 ---
 
 ## Desired output
@@ -103,7 +100,8 @@ names(dates)
 names(works)
 ```
 ]
-.pull-right[
+
+.pull-right-narrow[
 ```{r}
 nrow(professions)
 nrow(dates)
@@ -355,30 +353,26 @@ survey
 
 ## Student records
 
-.panelset[
-
-.panel[.panel-name[In class]
+#In class
 ```{r}
 enrolment %>% 
   left_join(survey, by = "id") #<<
 ```
-]
+---
 
-.panel[.panel-name[Survey missing]
+#Survey missing
 ```{r}
 enrolment %>% 
   anti_join(survey, by = "id") #<<
 ```
-]
+---
 
-.panel[.panel-name[Dropped]
+#Dropped
 ```{r}
 survey %>% 
   anti_join(enrolment, by = "id") #<<
 ```
-]
 
-]
 
 ---
 
@@ -417,9 +411,7 @@ prices
 
 ## Grocery sales
 
-.panelset[
-
-.panel[.panel-name[Total revenue]
+#Total revenue
 .pull-left[
 ```{r}
 purchases %>% 
@@ -432,10 +424,10 @@ purchases %>%
   left_join(prices) %>%
   summarise(total_revenue = sum(price)) #<<
 ```
-]
-]
 
-.panel[.panel-name[Revenue per customer]
+]
+---
+#Revenue per customer
 
 .pull-left[
 ```{r}
@@ -452,6 +444,3 @@ purchases %>%
 ```
 ]
 
-]
-
-]
