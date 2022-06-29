@@ -1,11 +1,12 @@
 ---
-title: "Data classes"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+title: "Data Classes"
+subtitle: "<br><br> R for Psychology"
+author: "Naomi Ekas"
 output:
   xaringan::moon_reader:
-    css: ["../xaringan-themer.css", "../slides.css"]
+    css: "../slides.css"
     lib_dir: libs
+    self_contained: TRUE
     nature:
       ratio: "16:9"
       highlightLines: true
@@ -24,11 +25,11 @@ library(scales)
 
 class: middle
 
-# Data classes
+# Data Classes
 
 ---
 
-## Data classes
+## Data Classes
 
 We talked about *types* so far, next we'll introduce the concept of *classes*
 
@@ -38,7 +39,7 @@ We talked about *types* so far, next we'll introduce the concept of *classes*
 - We stick them together to build more complicated constructs, e.g. *representations of data*
 
 --
-- The **class** attribute relates to the S3 class of an object which determines its behaviour
+- The **class** attribute relates to the S3 class of an object which determines its behavior
   - You don't need to worry about what S3 classes really mean, but you can read more about it [here](https://adv-r.hadley.nz/s3.html#s3-classes) if you're curious
 
 --
@@ -217,13 +218,13 @@ knitr::include_graphics("img/forcats-part-of-tidyverse.png")
 .your-turn[
 ### .hand[Your turn!]
 
-- [RStudio Cloud](http://rstd.io/dsbox-cloud) > `AE 05 - Hotels + Data types` > `hotels-forcats.Rmd` > knit
+- Github > `AE 05 - Hotels + Data types` > `hotels-forcats.Rmd` > knit
 - Recreate the x-axis of the following plot. 
-- **Stertch goal:** Recreate the y-axis.
+- **Stretch goal:** Recreate the y-axis.
 ]
 ]
 
-```{r echo=FALSE, out.width="90%", fig.asp=0.4}
+```{r echo=FALSE, out.width="90%", fig.asp=0.35}
 hotels <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-02-11/hotels.csv")
 hotels %>%
   mutate(arrival_date_month = fct_relevel(arrival_date_month, month.name)) %>%
@@ -271,13 +272,13 @@ knitr::include_graphics("img/lubridate-not-part-of-tidyverse.png")
 class: middle
 
 .hand[.light-blue[
-we're just going to scratch the surface of working with dates in R here...
+We're just going to scratch the surface of working with dates in R here...
 ]]
 
 ---
 
 .question[
-Calculate and visualise the number of bookings on any given arrival date.
+Calculate and visualize the number of bookings on any given arrival date.
 ]
 
 ```{r}
@@ -315,7 +316,7 @@ hotels %>%
 
 ---
 
-## Step 3. Visualise bookings per date
+## Step 3. Visualize bookings per date
 
 .midi[
 ```{r out.width="80%", fig.asp = 0.4}
@@ -376,7 +377,7 @@ hotels %>%
 
 ---
 
-## Step 3a. Visualise bookings per date
+## Step 3a. Visualize bookings per date
 
 .midi[
 ```{r out.width="80%", fig.asp = 0.4}
@@ -390,7 +391,7 @@ hotels %>%
 
 ---
 
-## Step 3b. Visualise using a smooth curve
+## Step 3b. Visualize using a smooth curve
 
 .midi[
 ```{r out.width="80%", fig.asp = 0.4, message = FALSE}
