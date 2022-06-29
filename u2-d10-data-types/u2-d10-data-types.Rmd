@@ -1,11 +1,12 @@
 ---
-title: "Data types"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+title: "Data Types"
+subtitle: "<br><br> R for Psychology"
+author: "Naomi Ekas"
 output:
   xaringan::moon_reader:
-    css: ["../xaringan-themer.css", "../slides.css"]
+    css: "../slides.css"
     lib_dir: libs
+    self_contained: TRUE
     nature:
       ratio: "16:9"
       highlightLines: true
@@ -46,7 +47,7 @@ cat_lovers
 
 ```{r}
 cat_lovers %>%
-  summarise(mean_cats = mean(number_of_cats))
+  summarize(mean_cats = mean(number_of_cats))
 ```
 
 ---
@@ -65,7 +66,7 @@ knitr::include_graphics("img/mean-help.png")
 
 ```{r}
 cat_lovers %>%
-  summarise(mean_cats = mean(number_of_cats, na.rm = TRUE))
+  summarize(mean_cats = mean(number_of_cats, na.rm = TRUE))
 ```
 
 ---
@@ -104,13 +105,13 @@ cat_lovers %>%
     name == "Doug Bass"    ~ 3,
     TRUE                   ~ as.numeric(number_of_cats)
     )) %>%
-  summarise(mean_cats = mean(number_of_cats))
+  summarize(mean_cats = mean(number_of_cats))
 ```
 ]
 
 ---
 
-## Always you need to respect data types
+## You always need to respect data types
 
 ```{r}
 cat_lovers %>%
@@ -122,7 +123,7 @@ cat_lovers %>%
       ),
     number_of_cats = as.numeric(number_of_cats)
     ) %>%
-  summarise(mean_cats = mean(number_of_cats))
+  summarize(mean_cats = mean(number_of_cats))
 ```
 
 ---
@@ -152,20 +153,20 @@ cat_lovers <- cat_lovers %>% #<<
 
 class: middle
 
-.hand[.light-blue[now that we have a good motivation for]]  
+.hand[.light-blue[Now that we have a good motivation for]]  
 .hand[.light-blue[learning about data types in R]]
 
 <br>
 
 .large[
-.hand[.light-blue[let's learn about data types in R!]]
+.hand[.light-blue[Let's learn about data types in R!]]
 ]
 
 ---
 
 class: middle
 
-# Data types
+# Data Types
 
 ---
 
@@ -314,7 +315,7 @@ Let's give formal names to what we've seen so far:
 .your-turn[
 ### .hand[Your turn!]
 
-- RStudio Cloud > `AE 05 - Hotels + Data types` > open `type-coercion.Rmd` and knit.
+- Github > `AE 05 - Hotels + Data types` > open `type-coercion.Rmd` and knit.
 - What is the type of the given vectors? First, guess. Then, try it out in R. 
 If your guess was correct, great! If not, discuss why they have that type.
 ]
