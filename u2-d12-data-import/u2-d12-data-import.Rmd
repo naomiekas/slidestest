@@ -1,11 +1,12 @@
 ---
-title: "Importing data"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+title: "Importing Data"
+subtitle: "<br><br> R for Psychology"
+author: "Naomi Ekas"
 output:
   xaringan::moon_reader:
-    css: ["../xaringan-themer.css", "../slides.css"]
+    css: "../slides.css"
     lib_dir: libs
+    self_contained: TRUE
     nature:
       ratio: "16:9"
       highlightLines: true
@@ -77,6 +78,7 @@ nobel
 
 ## Writing data
 
+
 .pull-left[
 - Write a file
 
@@ -106,7 +108,7 @@ read_csv("data/df.csv")
 .your-turn[
 ### .hand[Your turn!]
 
-- RStudio Cloud > `AE 06 - Nobels and sales + Data import` > open `nobels-csv.Rmd` and knit.
+- Github > `AE 06 - Nobels and sales + Data import` > open `nobels-csv.Rmd` and knit.
 - Read in the `nobels.csv` file from the `data-raw/` folder.
 - Split into two (STEM and non-STEM): 
   - Create a new data frame, `nobel_stem`, that filters for the STEM fields 
@@ -273,11 +275,11 @@ read_csv("data/df-na.csv")
 
 class:middle
 
-# Case study: Favourite foods
+# Case study: Favorite foods
 
 ---
 
-## Favourite foods
+## Favorite foods
 
 ```{r echo=FALSE}
 knitr::include_graphics("img/fav-food/fav-food.png")
@@ -467,7 +469,7 @@ class: middle
 .your-turn[
 ### .hand[Your turn!]
 .midi[
-- RStudio Cloud > `AE 06 - Nobels and sales + Data import` > `sales-excel.Rmd`. 
+- Github > `AE 06 - Nobels and sales + Data import` > `sales-excel.Rmd`. 
 - Load the `sales.xlsx` file from the `data-raw/` folder, using appropriate arguments for the `read_excel()` function such that it looks like the output on the left.
 - **Stretch goal:** Manipulate the sales data such that it looks like the output on the right.
 ]
