@@ -1,11 +1,12 @@
 ---
-title: "Scientific studies and confounding"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+title: "Scientific Studies and Confounding"
+subtitle: "<br><br> R for Psychology"
+author: "Naomi Ekas"
 output:
   xaringan::moon_reader:
-    css: ["../xaringan-themer.css", "../slides.css"]
+    css: "../slides.css"
     lib_dir: libs
+    self_contained: TRUE
     nature:
       ratio: "16:9"
       highlightLines: true
@@ -93,7 +94,7 @@ Souce: [Study: Cereal Keeps Girls Slim](https://www.cbsnews.com/news/study-cerea
 
 - Explanatory variable: Whether the participant ate breakfast or not
 
-- Reponse variable: BMI of the participant
+- Response variable: BMI of the participant
 
 
 ---
