@@ -1,11 +1,12 @@
 ---
-title: "Simpson's paradox"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+title: "Simpson's Paradox"
+subtitle: "<br><br> R for Psychology"
+author: "Naomi Ekas"
 output:
   xaringan::moon_reader:
-    css: ["../xaringan-themer.css", "../slides.css"]
+    css: "../slides.css"
     lib_dir: libs
+    self_contained: TRUE
     anchor_sections: FALSE
     nature:
       ratio: "16:9"
@@ -87,24 +88,18 @@ ucbadmit %>%
 
 ## Overall gender distribution
 
-.panelset[
-
-.panel[.panel-name[Plot]
+#Plot
 ```{r ref.label="gender-admit", echo = FALSE}
 ```
-]
+---
 
-.panel[.panel-name[Code]
+#Code
 ```{r gender-admit, fig.show = "hide"}
 ggplot(ucbadmit, aes(y = gender, fill = admit)) +
   geom_bar(position = "fill") + 
   labs(title = "Admit by gender",
        y = NULL, x = NULL)
 ```
-]
-
-]
-
 ---
 
 .question[
@@ -132,14 +127,12 @@ ucbadmit %>%
 
 ## Gender distribution, by department
 
-.panelset[
-
-.panel[.panel-name[Plot]
+#Plot
 ```{r ref.label="gender-dept-admit", echo = FALSE}
 ```
-]
+---
 
-.panel[.panel-name[Code]
+#Code
 ```{r gender-dept-admit, fig.show = "hide"}
 ggplot(ucbadmit, aes(y = gender, fill = admit)) +
   geom_bar(position = "fill") +
@@ -149,9 +142,6 @@ ggplot(ucbadmit, aes(y = gender, fill = admit)) +
        x = NULL, y = NULL, fill = NULL) +
   theme(legend.position = "bottom")
 ```
-]
-
-]
 
 ---
 
@@ -170,14 +160,12 @@ ggplot(ucbadmit, aes(y = gender, fill = admit)) +
 
 ## Closer look at departments
 
-.panelset[
-
-.panel[.panel-name[Output]
+#Output
 ```{r ref.label="gender-dept-admit-table", echo = FALSE}
 ```
-]
+---
 
-.panel[.panel-name[Code]
+#Code
 ```{r gender-dept-admit-table, eval = FALSE}
 ucbadmit %>%
   count(dept, gender, admit) %>%
@@ -191,10 +179,6 @@ ucbadmit %>%
   select(-admit) %>%
   print(n = 12)
 ```
-]
-
-]
-
 ---
 
 class: middle
@@ -388,7 +372,7 @@ ucbadmit %>%
 ```{r}
 ucbadmit %>%
   group_by(gender) %>%
-  summarise(n = n()) 
+  summarize(n = n()) 
 ```
 ]
 .pull-right[
@@ -406,7 +390,7 @@ ucbadmit %>%
 ```{r}
 ucbadmit %>%
   group_by(gender, admit) %>%
-  summarise(n = n()) 
+  summarize(n = n()) 
 ```
 ]
 .pull-right[
@@ -418,14 +402,14 @@ ucbadmit %>%
 
 ---
 
-## `summarise()` after `group_by()`
+## `summarize()` after `group_by()`
 
 - `count()` ungroups after itself
-- `summarise()` peels off one layer of grouping by default, or you can specify a different behaviour
+- `summarize()` peels off one layer of grouping by default, or you can specify a different behavior
 
 
 ```{r message=TRUE}
 ucbadmit %>%
   group_by(gender, admit) %>%
-  summarise(n = n()) 
+  summarize(n = n()) 
 ```
