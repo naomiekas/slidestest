@@ -1,11 +1,12 @@
 ---
-title: "Doing data science"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+title: "Doing Data Science"
+subtitle: "<br><br> R for Psychology"
+author: "Naomi Ekas"
 output:
   xaringan::moon_reader:
-    css: ["../xaringan-themer.css", "../slides.css"]
+    css: "../slides.css"
     lib_dir: libs
+    self_contained: TRUE
     anchor_sections: FALSE
     nature:
       ratio: "16:9"
@@ -64,19 +65,19 @@ Jeffery T. Leek and Roger D. Peng. "What is the question?." Science 347.6228 (20
 
 ## Ex: COVID-19 and Vitamin D
 
-1. **Descriptive:** frequency of hospitalisations due to COVID-19 in a set of data collected from a group of individuals
+1. **Descriptive:** frequency of hospitalizations due to COVID-19 in a set of data collected from a group of individuals
 --
 
-1. **Exploratory:** examine relationships between a range of dietary factors and COVID-19 hospitalisations
+1. **Exploratory:** examine relationships between a range of dietary factors and COVID-19 hospitalizations
 --
 
-1. **Inferential:** examine whether any relationship between taking Vitamin D supplements and COVID-19 hospitalisations found in the sample hold for the population at large
+1. **Inferential:** examine whether any relationship between taking Vitamin D supplements and COVID-19 hospitalizations found in the sample hold for the population at large
 
 --
 1. **Predictive:** what types of people will take Vitamin D supplements during the next year
 
 --
-1. **Causal:** whether people with COVID-19 who were randomly assigned to take Vitamin D supplements or those who were not are hospitalised
+1. **Causal:** whether people with COVID-19 who were randomly assigned to take Vitamin D supplements or those who were not are hospitalized
 
 --
 1. **Mechanistic:** how increased vitamin D intake leads to a reduction in the number of viral illnesses
@@ -155,7 +156,7 @@ fav_food %>% clean_names()
 - This table contains squirrel data for each of the 3,023 sightings, including location coordinates, age, primary and secondary fur color, elevation, activities, communications, and interactions between squirrels and with humans.
 
 ```{r}
-#install_github("mine-cetinkaya-rundel/nycsquirrels18")
+devtools::install_github("mine-cetinkaya-rundel/nycsquirrels18")
 library(nycsquirrels18)
 ```
 
@@ -229,14 +230,12 @@ ggplot(squirrels, aes(x = long, y = lat)) +
 
 ## Try the easy solution first
 
-.panelset[
-
-.panel[.panel-name[Plot]
+#Plot
 ```{r ref.label="easy-solution", echo = FALSE}
 ```
-]
+---
 
-.panel[.panel-name[Code]
+#Code
 ```{r easy-solution, fig.show = "hide"}
 squirrels <- squirrels %>%
   separate(hectare, into = c("NS", "EW"), sep = 2, remove = FALSE) %>%
@@ -245,22 +244,17 @@ squirrels <- squirrels %>%
 ggplot(squirrels, aes(x = long, y = lat, color = where)) +
   geom_point(alpha = 0.2)
 ```
-]
-
-]
 
 ---
 
 ## Then go deeper...
 
-.panelset[
-
-.panel[.panel-name[Plot]
+#Plot
 ```{r ref.label="hex-plot", echo = FALSE}
 ```
-]
+---
 
-.panel[.panel-name[Code]
+#Code
 ```{r hex-plot, fig.show = "hide"}
 hectare_counts <- squirrels %>%
   group_by(hectare) %>%
@@ -279,9 +273,7 @@ squirrels %>%
   ggplot(aes(x = centroid_x, y = centroid_y, color = n)) +
   geom_hex()
 ```
-]
 
-]
 
 ---
 
