@@ -40,11 +40,7 @@ knitr::include_graphics("img/fm-speeches.png")
 
 ## End with 🛑
 
-```{r echo=FALSE}
-covid_speeches <- read_rds("data/covid-speeches-scot.rds") %>%
-  print(n = 15)
-```
-
+A pretty data frame
 
 ---
 
@@ -272,12 +268,12 @@ covid_speeches <- map_dfr(covid_speech_urls, scrape_speech)
 ---
 
 ```{r include=FALSE}
-covid_speeches <- read_rds("data/covid-speeches-scot.rds")
+#covid_speeches <- read_rds("data/covid-speeches-scot.rds")
 ```
 
 ```{r}
-covid_speeches %>%
-  print(n = 15)
+#covid_speeches %>%
+ # print(n = 15)
 ```
 
 ---
