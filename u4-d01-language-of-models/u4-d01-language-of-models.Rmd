@@ -215,12 +215,11 @@ ggplot(data = pp, aes(x = Width_in)) +
 
 ## Height as a function of width
 
-.panelset[
-.panel[.panel-name[Plot]
+.panel-name[Plot]
 ```{r ref.label = "height-width-plot", echo = FALSE, warning = FALSE, out.width = "60%"}
 ```
-]
-.panel[.panel-name[Code]
+---
+.panel-name[Code]
 
 ```{r height-width-plot, fig.show="hide"}
 ggplot(data = pp, aes(x = Width_in, y = Height_in)) +
@@ -233,19 +232,16 @@ ggplot(data = pp, aes(x = Width_in, y = Height_in)) +
     y = "Height (inches)"
   )
 ```
-]
-]
 
 ---
 
 ## ... without the measure of uncertainty
 
-.panelset[
-.panel[.panel-name[Plot]
+.panel-name[Plot]
 ```{r ref.label = "height-width-plot-no-se", echo = FALSE, warning = FALSE, out.width = "60%"}
 ```
-]
-.panel[.panel-name[Code]
+---
+.panel-name[Code]
 
 ```{r height-width-plot-no-se, fig.show="hide", warning=FALSE}
 ggplot(data = pp, aes(x = Width_in, y = Height_in)) +
@@ -259,19 +255,16 @@ ggplot(data = pp, aes(x = Width_in, y = Height_in)) +
     y = "Height (inches)"
   )
 ```
-]
-]
 
 ---
 
 ## ... with different cosmetic choices
 
-.panelset[
-.panel[.panel-name[Plot]
+.panel-name[Plot]
 ```{r ref.label = "height-width-plot-cosmetics", echo = FALSE, warning = FALSE, out.width = "60%"}
 ```
-]
-.panel[.panel-name[Code]
+---
+.panel-name[Code]
 
 ```{r height-width-plot-cosmetics, fig.show="hide", warning=FALSE}
 ggplot(data = pp, aes(x = Width_in, y = Height_in)) +
@@ -285,19 +278,16 @@ ggplot(data = pp, aes(x = Width_in, y = Height_in)) +
     y = "Height (inches)"
   )
 ```
-]
-]
 
 ---
 
 ## Other smoothing methods: gam
 
-.panelset[
-.panel[.panel-name[Plot]
+.panel-name[Plot]
 ```{r ref.label = "height-width-plot-gam", echo = FALSE, warning = FALSE, out.width = "60%"}
 ```
-]
-.panel[.panel-name[Code]
+---
+.panel-name[Code]
 
 ```{r height-width-plot-gam, fig.show="hide", warning=FALSE}
 ggplot(data = pp, aes(x = Width_in, y = Height_in)) +
@@ -311,19 +301,16 @@ ggplot(data = pp, aes(x = Width_in, y = Height_in)) +
     y = "Height (inches)"
   )
 ```
-]
-]
 
 ---
 
 ## Other smoothing methods: loess
 
-.panelset[
-.panel[.panel-name[Plot]
+.panel-name[Plot]
 ```{r ref.label = "height-width-plot-loess", echo = FALSE, warning = FALSE, out.width = "60%"}
 ```
-]
-.panel[.panel-name[Code]
+---
+.panel-name[Code]
 
 ```{r height-width-plot-loess, fig.show="hide", warning=FALSE}
 ggplot(data = pp, aes(x = Width_in, y = Height_in)) +
@@ -337,8 +324,6 @@ ggplot(data = pp, aes(x = Width_in, y = Height_in)) +
     y = "Height (inches)"
   )
 ```
-]
-]
 
 ---
 
@@ -362,12 +347,11 @@ ggplot(data = pp, aes(x = Width_in, y = Height_in)) +
 
 ## Residuals
 
-.panelset[
-.panel[.panel-name[Plot]
+.panel-name[Plot]
 ```{r ref.label = "height-width-plot-residuals", echo = FALSE, warning = FALSE, out.width = "60%"}
 ```
-]
-.panel[.panel-name[Code]
+---
+.panel-name[Code]
 .small[
 ```{r height-width-plot-residuals, fig.show="hide", warning=FALSE}
 ht_wt_fit <- linear_reg() %>%
@@ -393,9 +377,6 @@ ggplot(data = ht_wt_fit_aug) +
   geom_text(aes(x = 150, y = 25), label = "Negative residual", color = "#260b27", hjust = 0, size = 8)
 ```
 ]
-]
-]
-
 ---
 
 .question[
@@ -445,7 +426,8 @@ How, if at all, does the relationship between width and height of paintings vary
 ```
 ]
 ]
-.panel[.panel-name[Code]
+---
+.panel-name[Code]
 ```{r height-width-landscape, fig.show="hide", warning=FALSE}
 ggplot(data = pp, aes(x = Width_in, y = Height_in, color = factor(landsALL))) +
   geom_point(alpha = 0.4) +
@@ -459,19 +441,16 @@ ggplot(data = pp, aes(x = Width_in, y = Height_in, color = factor(landsALL))) +
   ) +
   scale_color_manual(values = c("#E48957", "#071381"))
 ```
-]
-]
 
 ---
 
 ## Extending regression lines
 
-.panelset[
-.panel[.panel-name[Plot]
+.panel-name[Plot]
 ```{r ref.label = "extrapolation", echo = FALSE, warning = FALSE, out.width = "65%"}
 ```
-]
-.panel[.panel-name[Code]
+---
+.panel-name[Code]
 ```{r extrapolation, fig.show="hide", warning=FALSE}
 ggplot(data = pp, aes(x = Width_in, y = Height_in, color = factor(landsALL))) +
   geom_point(alpha = 0.4) +
@@ -486,8 +465,6 @@ ggplot(data = pp, aes(x = Width_in, y = Height_in, color = factor(landsALL))) +
   ) +
   scale_color_manual(values = c("#E48957", "#071381"))
 ```
-]
-]
 
 ---
 
