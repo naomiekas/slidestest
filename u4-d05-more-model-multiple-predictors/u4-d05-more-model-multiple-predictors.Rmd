@@ -1,11 +1,12 @@
 ---
 title: "More models with multiple predictors"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+subtitle: "<br><br> R for Psychology"
+author: "Naomi Ekas"
 output:
   xaringan::moon_reader:
-    css: ["../xaringan-themer.css", "../slides.css"]
+    css: "../slides.css"
     lib_dir: libs
+    self_contained: TRUE
     anchor_sections: FALSE
     nature:
       ratio: "16:9"
@@ -71,49 +72,6 @@ $$\widehat{log\_price} = 4.77 + 0.0269 \times width - 0.0133 \times height$$
 
 ---
 
-## Visualizing models with multiple predictors
-
-.panelset[
-.panel[.panel-name[Plot]
-.pull-left-wide[
-```{r plotly-plot, echo = FALSE, fig.align="center", warning=FALSE}
-p <- plot_ly(pp,
-  x = ~Width_in, y = ~Height_in, z = ~log_price,
-  marker = list(size = 3, color = "lightgray", alpha = 0.5, 
-                line = list(color = "gray", width = 2))) %>%
-  add_markers() %>%
-  plotly::layout(scene = list(
-    xaxis = list(title = "Width (in)"),
-    yaxis = list(title = "Height (in)"),
-    zaxis = list(title = "log_price")
-  )) %>%
-  config(displayModeBar = FALSE)
-frameWidget(p)
-```
-]
-]
-.panel[.panel-name[Code]
-```{r plotly-code, eval=FALSE}
-p <- plot_ly(pp,
-  x = ~Width_in, y = ~Height_in, z = ~log_price,
-  marker = list(size = 3, color = "lightgray", alpha = 0.5, 
-                line = list(color = "gray", width = 2))) %>%
-  add_markers() %>%
-  plotly::layout(scene = list(
-    xaxis = list(title = "Width (in)"),
-    yaxis = list(title = "Height (in)"),
-    zaxis = list(title = "log_price")
-  )) %>%
-  config(displayModeBar = FALSE)
-frameWidget(p)
-```
-]
-]
-
----
-
-class: middle
-
 # Numerical and categorical predictors
 
 ---
@@ -139,8 +97,7 @@ pp %>%
 
 ## Typical surface area
 
-.panelset[
-.panel[.panel-name[Plot]
+.panel-name[Plot]
 .pull-left-narrow[
 Typical surface area appears to be less than 1000 square inches (~ 80cm x 80cm). There are very few paintings that have surface area above 5000 square inches.
 ]
@@ -149,7 +106,8 @@ Typical surface area appears to be less than 1000 square inches (~ 80cm x 80cm).
 ```
 ]
 ]
-.panel[.panel-name[Code]
+---
+.panel-name[Code]
 ```{r viz-surf-artistliving, fig.show = "hide"}
 ggplot(data = pp, aes(x = Surface, fill = artistliving)) +
   geom_histogram(binwidth = 500) + 
@@ -160,21 +118,18 @@ ggplot(data = pp, aes(x = Surface, fill = artistliving)) +
   geom_vline(xintercept = 1000) +
   geom_vline(xintercept = 5000, linetype = "dashed", color = "gray")
 ```
-]
-]
 
 ---
 
 ## Narrowing the scope
 
-.panelset[
-.panel[.panel-name[Plot]
+.panel-name[Plot]
 For simplicity let's focus on the paintings with `Surface < 5000`:
 
 ```{r ref.label = "viz-surf-lt-5000-artistliving", echo = FALSE, warning = FALSE, out.width = "55%"}
 ```
-]
-.panel[.panel-name[Code]
+---
+.panel-name[Code]
 ```{r viz-surf-lt-5000-artistliving, fig.show = "hide"}
 pp_Surf_lt_5000 <- pp %>%
   filter(Surface < 5000)
@@ -185,19 +140,15 @@ ggplot(data = pp_Surf_lt_5000,
   labs(color = "Artist", shape = "Artist") +
   scale_color_manual(values = c("#E48957", "#071381"))
 ```
-]
-]
-
 ---
 
 ## Facet to get a better look
 
-.panelset[
-.panel[.panel-name[Plot]
+.panel-name[Plot]
 ```{r ref.label = "viz-surf-lt-5000-artistliving-facet", echo = FALSE, warning = FALSE, out.width = "80%", fig.asp = 0.5}
 ```
-]
-.panel[.panel-name[Code]
+---
+.panel-name[Code]
 ```{r viz-surf-lt-5000-artistliving-facet, fig.show = "hide"}
 ggplot(data = pp_Surf_lt_5000, 
        aes(y = log_price, x = Surface, color = artistliving, shape = artistliving)) +
@@ -206,8 +157,6 @@ ggplot(data = pp_Surf_lt_5000,
   scale_color_manual(values = c("#E48957", "#071381")) +
   labs(color = "Artist", shape = "Artist")
 ```
-]
-]
 
 ---
 
