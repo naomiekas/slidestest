@@ -1,11 +1,12 @@
 ---
 title: "Modeling non-linear relationships"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+subtitle: "<br><br> R for Psychology"
+author: "Naomi Ekas"
 output:
   xaringan::moon_reader:
-    css: ["../xaringan-themer.css", "../slides.css"]
+    css: "../slides.css"
     lib_dir: libs
+    self_contained: TRUE
     anchor_sections: FALSE
     nature:
       ratio: "16:9"
@@ -53,12 +54,11 @@ pp <- read_csv("data/paris-paintings.csv", na = c("n/a", "", "NA"))
 
 ## Graphical diagnostic: residuals plot
 
-.panelset[
-.panel[.panel-name[Plot]
+.panel-name[Plot]
 ```{r ref.label = "residuals-plot", echo = FALSE, warning = FALSE, out.width = "60%"}
 ```
-]
-.panel[.panel-name[Code]
+---
+.panel-name[Code]
 ```{r residuals-plot, fig.show="hide"}
 ht_wt_fit <- linear_reg() %>%
   set_engine("lm") %>%
@@ -71,14 +71,12 @@ ggplot(ht_wt_fit_aug, mapping = aes(x = .fitted, y = .resid)) +
   geom_hline(yintercept = 0, color = "gray", lty = "dashed") +
   labs(x = "Predicted height", y = "Residuals")
 ```
-]
+---
 
-.panel[.panel-name[Augment]
+.panel-name[Augment]
 ```{r}
 ht_wt_fit_aug
 ```
-]
-]
 
 ---
 
