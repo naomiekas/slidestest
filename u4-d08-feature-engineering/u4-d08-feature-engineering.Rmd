@@ -1,11 +1,12 @@
 ---
 title: "Feature engineering"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+subtitle: "<br><br> R for Psychology"
+author: "Naomi Ekas"
 output:
   xaringan::moon_reader:
-    css: ["../xaringan-themer.css", "../slides.css"]
+    css: "../slides.css"
     lib_dir: libs
+    self_contained: TRUE
     anchor_sections: FALSE
     nature:
       ratio: "16:9"
@@ -326,15 +327,15 @@ class: middle
 
 ## Cutoff probability: 0.5
 
-.panelset[
-.panel[.panel-name[Output]
+Output
 
 Suppose we decide to label an email as spam if the model predicts the probability of spam to be **more than 0.5**.
 
 ```{r ref.label = "confusion-50,", echo = FALSE}
 ```
-]
-.panel[.panel-name[Code]
+
+---
+[Code]
 ```{r confusion-50, results = "hide"}
 cutoff_prob <- 0.5
 email_pred %>%
@@ -346,22 +347,19 @@ email_pred %>%
   pivot_wider(names_from = spam, values_from = n) %>%
   kable(col.names = c("", "Email is not spam", "Email is spam"))
 ```
-]
-]
 
 ---
 
 ## Cutoff probability: 0.25
 
-.panelset[
-.panel[.panel-name[Output]
+Output
 
 Suppose we decide to label an email as spam if the model predicts the probability of spam to be **more than 0.25**.
 
 ```{r ref.label = "confusion-25,", echo = FALSE}
 ```
-]
-.panel[.panel-name[Code]
+---
+Code
 ```{r confusion-25, results = "hide"}
 cutoff_prob <- 0.25
 email_pred %>%
@@ -373,22 +371,19 @@ email_pred %>%
   pivot_wider(names_from = spam, values_from = n) %>%
   kable(col.names = c("", "Email is not spam", "Email is spam"))
 ```
-]
-]
 
 ---
 
 ## Cutoff probability: 0.75
 
-.panelset[
-.panel[.panel-name[Output]
+Output
 
 Suppose we decide to label an email as spam if the model predicts the probability of spam to be **more than 0.75**.
 
 ```{r ref.label = "confusion-75,", echo = FALSE}
 ```
-]
-.panel[.panel-name[Code]
+---
+Code
 ```{r confusion-75, results = "hide"}
 cutoff_prob <- 0.75
 email_pred %>%
@@ -400,5 +395,4 @@ email_pred %>%
   pivot_wider(names_from = spam, values_from = n) %>%
   kable(col.names = c("", "Email is not spam", "Email is spam"))
 ```
-]
-]
+
