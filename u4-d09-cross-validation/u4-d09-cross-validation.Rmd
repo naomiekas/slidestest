@@ -1,11 +1,12 @@
 ---
 title: "Cross validation"
-subtitle: "<br><br> Data Science in a Box"
-author: "[datasciencebox.org](https://datasciencebox.org/)"
+subtitle: "<br><br> R for Psychology"
+author: "Naomi Ekas"
 output:
   xaringan::moon_reader:
-    css: ["../xaringan-themer.css", "../slides.css"]
+    css: "../slides.css"
     lib_dir: libs
+    self_contained: TRUE
     anchor_sections: FALSE
     nature:
       ratio: "16:9"
@@ -53,8 +54,15 @@ Source: The data come from [data.world](https://data.world/anujjain7/the-office-
 
 ## IMDB ratings
 
-.panelset[
-```{r panelset = c(output = "Plot", source = "Code")}
+#Plot
+
+```{r ref.label = "office-ratings", echo = FALSE}
+
+```
+---
+#Code
+
+```{r office-ratings, fig.show = "hide"}
 ggplot(office_ratings, aes(x = imdb_rating)) +
   geom_histogram(binwidth = 0.25) +
   labs(
@@ -62,14 +70,19 @@ ggplot(office_ratings, aes(x = imdb_rating)) +
     x = "IMDB Rating"
   )
 ```
-]
 
 ---
 
 ## IMDB ratings vs. number of votes
 
-.panelset[
-```{r panelset = c(output = "Plot", source = "Code"), out.width="55%"}
+#Plot
+
+```{r ref.label = "office-ratings-num", echo = FALSE}
+
+```
+---
+
+```{r office-ratings-num, fig.show = "hide"}
 ggplot(office_ratings, aes(x = total_votes, y = imdb_rating, color = season)) +
   geom_jitter(alpha = 0.7) +
   labs(
@@ -79,14 +92,21 @@ ggplot(office_ratings, aes(x = total_votes, y = imdb_rating, color = season)) +
     color = "Season"
   )
 ```
-]
+
 
 ---
 
 ## Outliers
 
-.panelset[
-```{r panelset = c(output = "Plot", source = "Code"), out.width="55%"}
+#Plot
+
+```{r ref.label = "office-outlier", echo = FALSE}
+
+```
+---
+#Code
+
+```{r office-outlier, fig.show = "hide"}
 ggplot(office_ratings, aes(x = total_votes, y = imdb_rating)) +
   geom_jitter() +
   gghighlight(total_votes > 4000, label_key = title) +
@@ -96,7 +116,6 @@ ggplot(office_ratings, aes(x = total_votes, y = imdb_rating)) +
     y = "IMDB Rating"
   )
 ```
-]
 
 .footnote[
 .small[
@@ -108,8 +127,15 @@ If you like the [Dinner Party](https://www.imdb.com/title/tt1031477/) episode, I
 
 ## IMDB ratings vs. seasons
 
-.panelset[
-```{r panelset = c(output = "Plot", source = "Code"), out.width="55%"}
+#Plot
+
+```{r ref.label = "office-seasons", echo = FALSE}
+
+```
+---
+#Code
+
+```{r office-seasons, fig.show = "hide"}
 ggplot(office_ratings, aes(x = factor(season), y = imdb_rating, color = season)) +
   geom_boxplot() +
   geom_jitter() +
@@ -120,7 +146,6 @@ ggplot(office_ratings, aes(x = factor(season), y = imdb_rating, color = season))
     y = "IMDB Rating"
   )
 ```
-]
 
 ---
 
@@ -172,8 +197,7 @@ office_mod
 
 ## Build recipe
 
-.panelset[
-.panel[.panel-name[Code]
+.panel-name[Code]
 ```{r}
 office_rec <- recipe(imdb_rating ~ ., data = office_train) %>%
   # title isn't a predictor, but keep around to ID
@@ -186,14 +210,12 @@ office_rec <- recipe(imdb_rating ~ ., data = office_train) %>%
   # remove zero variance predictors
   step_zv(all_predictors())
 ```
-]
-.panel[.panel-name[Output]
+---
+[Output]
 .small[
 ```{r}
 office_rec
 ```
-]
-]
 ]
 
 ---
